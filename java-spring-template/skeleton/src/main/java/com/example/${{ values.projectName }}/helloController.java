@@ -1,4 +1,4 @@
-package com.example.{{projectName}};
+package com.example.${{ values.projectName }};
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
