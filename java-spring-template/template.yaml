@@ -35,6 +35,7 @@ spec:
         values:
           projectName: ${{parameters.projectName}}
           javaVersion: ${{parameters.javaVersion}}
+          owner: ${{parameters.owner}}
           buildTool: ${{parameters.buildTool}}
     - id: publish
       name: Publishing to a github repository
