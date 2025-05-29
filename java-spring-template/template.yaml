@@ -64,9 +64,8 @@ spec:
         appName: ${{parameters.projectName}}
         appNamespace: ${{parameters.projectName}}
         argoInstance: in-cluster
-        repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}.git
+        repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}
         path: charts
-        targetRevision: main
         projectName: default
         syncPolicy:
           automated: true
