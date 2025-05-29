@@ -46,6 +46,7 @@ spec:
         repoVisibility: public
         values:
           projectName: ${{parameters.projectName}}
+          owner: ${{parameters.owner}}
           javaVersion: ${{parameters.javaVersion}}
           buildTool: ${{parameters.buildTool}}
     
