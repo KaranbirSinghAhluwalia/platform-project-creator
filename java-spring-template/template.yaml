@@ -47,3 +47,20 @@ spec:
         values:
           name: ${{parameters.projectName}}
           owner: ${{parameters.owner}}
+    - id: register
+      name: Register in Backstage Catalog
+      action: catalog:register
+      input:
+        repoContentsUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}/blob/main
+        catalogInfoPath: catalog-info.yaml
+
+    - id: argocd
+      name: Register in ArgoCD
+      action: argocd:register
+      input:
+        repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}.git
+        path: .
+        targetRevision: main
+        project: default
+        syncPolicy:
+          automated: true
