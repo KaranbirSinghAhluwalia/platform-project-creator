@@ -40,7 +40,7 @@ spec:
       name: Publishing to a github repository
       action: publish:github
       input:
-        repoUrl: github.com/{{ parameters.owner }}/{{ parameters.projectName }}
+        repoUrl: github.com?repo=${{parameters.projectName}}&owner=${{parameters.owner}}
         defaultBranch: main
         description: Generated Java Spring Boot app
         repoVisibility: public
