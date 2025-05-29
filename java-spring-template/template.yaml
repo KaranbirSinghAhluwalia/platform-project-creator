@@ -67,6 +67,6 @@ spec:
         repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}.git
         path: charts
         targetRevision: main
-        project: default
+        projectName: default
         syncPolicy:
           automated: true
