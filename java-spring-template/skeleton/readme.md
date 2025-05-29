@@ -1,9 +1,9 @@
-# {{ projectName }}
+# ${{ values.projectName }}
 
 This is a Spring Boot application scaffolded by Backstage.
 
-## Build tool: {{ buildTool }}
-## Java version: {{ javaVersion }}
+## Build tool: ${{ values.buildTool }}
+## Java version: ${{ values.javaVersion }}
 
 ### Run locally
 
