@@ -37,12 +37,11 @@ spec:
           projectName: "{{ parameters.projectName }}"
           javaVersion: "{{ parameters.javaVersion }}"
           buildTool: "{{ parameters.buildTool }}"
-    - id: init_repo
-      name: Initialize Git Repo and Push
-      action: git:push
+    - id: publish
+      name: Publishing to a github repository
+      action: publish:github
       input:
-        remoteUrl: "{{ parameters.repoUrl }}"
-        commitMessage: "Initial commit of {{ parameters.projectName }}"
-        userName: backstage-bot
-        userEmail: backstage@example.com
-        force: true
+        repoUrl: github.com?repo=${{parameters.name}}&owner=${{parameters.owner}}
+        defaultBranch: main
+        description: "Generated Java Spring Boot app"
+        repoVisibility: public
