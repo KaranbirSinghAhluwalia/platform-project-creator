@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ${{ values.name }}
-  namespace: ${{ values.name }}
+  name: ${{ values.projectName }}
+  namespace: ${{ values.projectName }}
   labels: 
-    entity-id: ${{values.name}}
-    app: ${{values.name}}
+    entity-id: ${{values.projectName}}
+    app: ${{values.projectName}}
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ${{ values.name }}
+      app: ${{ values.projectName }}
   template:
     metadata:
       labels:
-        backstage.io/kubernetes-id: ${{ values.name }}
-        entity-id: ${{values.name}}
-        app: ${{ values.name }}
+        backstage.io/kubernetes-id: ${{ values.projectName }}
+        entity-id: ${{values.projectName}}
+        app: ${{ values.projectName }}
     spec:
-      serviceAccountName: ${{ values.name }}
+      serviceAccountName: ${{ values.projectName }}
       containers:
-      - name: ${{ values.name }}
-        image: ${{ values.owner }}:0.1.0
+      - name: ${{ values.projectName }}
+        image: ${{ values.projectName }}:0.1.0
         ports:
         - containerPort: 8080
         resources:
