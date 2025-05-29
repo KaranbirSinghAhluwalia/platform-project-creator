@@ -1,4 +1,4 @@
-package com.example.{{projectName}};
+package com.example.${{ values.projectName }};
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
