@@ -48,22 +48,22 @@ spec:
           name: {{parameters.projectName}}
           owner: {{parameters.owner}}
 
-    - id: register
-      name: Register in Backstage Catalog
-      action: catalog:location
-      input:
-        location:
-          type: url
-          target: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}/catalog-info.yaml
-        dryRun: false
-        optional: false
-    
     # - id: register
     #   name: Register in Backstage Catalog
-    #   action: catalog:register
+    #   action: catalog:location
     #   input:
-    #     repoContentsUrl: https://github.com/${{parameters.owner}}/${{parameters.projectName}}.git
-    #     catalogInfoPath: catalog-info.yaml
+    #     location:
+    #       type: url
+    #       target: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}/blob/main/catalog-info.yaml
+    #     dryRun: false
+    #     optional: false
+    
+    - id: register
+      name: Register in Backstage Catalog
+      action: catalog:register
+      input:
+        repoContentsUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}
+        catalogInfoPath: catalog-info.yaml
 
     - id: argocd
       name: Register in ArgoCD
