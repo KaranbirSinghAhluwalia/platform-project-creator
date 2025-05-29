@@ -62,7 +62,7 @@ spec:
       action: argocd:register
       input:
         repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}.git
-        path: .
+        path: charts
         targetRevision: main
         project: default
         syncPolicy:
