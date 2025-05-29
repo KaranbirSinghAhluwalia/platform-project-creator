@@ -49,11 +49,10 @@ spec:
           owner: {{parameters.owner}}
     
     - id: register
-      name: Register in Backstage Catalog
+      name: Register
       action: catalog:register
       input:
-        repoContentsUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}/blob/main
-        catalogInfoPath: catalog-info.yaml
+        catalogInfoUrl: https://github.com/${{parameters.owner}}/${{parameters.projectName}}/blob/main/catalog-info.yaml
 
     - id: argocd
       name: Register in ArgoCD
