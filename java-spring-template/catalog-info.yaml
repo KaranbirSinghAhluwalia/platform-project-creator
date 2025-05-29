@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "{{ projectName }}"
+  description: Java Spring Boot app
+  tags:
+    - java
+    - springboot
+spec:
+  type: service
+  lifecycle: production
+  owner: "{{ owner }}"
