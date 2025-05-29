@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${{ values.name }}
-  namespace: ${{ values.name }}
+  name: ${{ values.projectName }}
+  namespace: ${{ values.projectName }}
   labels:
-    backstage.io/kubernetes-id: ${{ values.name }}
+    backstage.io/kubernetes-id: ${{ values.projectName }}
 spec:
   selector:
-    app: ${{ values.name }}
+    app: ${{ values.projectName }}
   ports:
     - protocol: TCP
       port: 80
