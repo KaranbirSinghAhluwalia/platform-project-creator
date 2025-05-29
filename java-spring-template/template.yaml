@@ -9,11 +9,14 @@ spec:
   type: service
   parameters:
     - title: Project Info
-      required: ['projectName', 'javaVersion', 'buildTool', 'repoUrl']
+      required: ['projectName', 'owner', 'javaVersion', 'buildTool']
       properties:
         projectName:
           type: string
           title: Project Name
+        owner:
+          type: string
+          title: GitHub Owner (org or user)
         javaVersion:
           type: string
           title: Java Version
@@ -22,10 +25,6 @@ spec:
           type: string
           title: Build Tool
           enum: ['maven', 'gradle']
-        repoUrl:
-          type: string
-          title: Git Repository URL
-          description: URL of the new Git repo to push the scaffolded project
   steps:
     - id: fetch
       name: Fetch Skeleton
@@ -41,7 +40,7 @@ spec:
       name: Publishing to a github repository
       action: publish:github
       input:
-        repoUrl: github.com?repo={{ parameters.projectName }}
+        repoUrl: https://github.com/{{ parameters.owner }}/{{ parameters.projectName }}
         defaultBranch: main
         description: "Generated Java Spring Boot app"
         repoVisibility: public
