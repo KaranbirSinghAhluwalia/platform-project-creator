@@ -59,7 +59,7 @@ spec:
 
     - id: argocd
       name: Register in ArgoCD
-      action: argocd:register
+      action: cnoe:create-argocd-app
       input:
         appName: ${{parameters.projectName}}
         appNamespace: ${{parameters.projectName}}
