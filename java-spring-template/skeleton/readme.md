@@ -1,9 +1,9 @@
-# {{ projectName }}
+# ${{ values.projectName }}
 
 This is a Spring Boot application scaffolded and deployed using [Backstage](https://backstage.io), with support for Docker, Helm, and GitOps workflows via ArgoCD.
 
-## Build Tool: `{{ buildTool }}`
-## Java Version: `{{ javaVersion }}`
+## Build Tool: `${{values.buildTool}}`
+## Java Version: `${{values.javaVersion}}`
 
 ---
 
@@ -32,7 +32,7 @@ This is a Spring Boot application scaffolded and deployed using [Backstage](http
 ./gradlew bootRun
 ```
 
-> Ensure Java `{{ javaVersion }}` is installed locally.
+> Ensure Java `${{values.javaVersion}}` is installed locally.
 
 ---
 
@@ -41,13 +41,13 @@ This is a Spring Boot application scaffolded and deployed using [Backstage](http
 ### Build Docker Image
 
 ```bash
-docker build -t {{ projectName }}:latest .
+docker build -t ${{ values.projectName }}:latest .
 ```
 
 ### Run the Docker Container
 
 ```bash
-docker run -p 8080:8080 {{ projectName }}:latest
+docker run -p 8080:8080 ${{ values.projectName }}:latest
 ```
 
 > Visit the app at: [http://localhost:8080](http://localhost:8080)
@@ -66,7 +66,7 @@ This project includes a Helm chart under the `charts/` directory.
 ### Deploy using Helm
 
 ```bash
-helm install {{ projectName }} ./charts/{{ projectName }}
+helm install ${{ values.projectName }} ./charts/${{ values.projectName }}
 ```
 
 ---
@@ -79,8 +79,8 @@ helm install {{ projectName }} ./charts/{{ projectName }}
 ├── README.md
 ├── pom.xml or build.gradle
 ├── src/
-│   ├── main/java/com/example/{{projectName}}/HelloController.java
+│   ├── main/java/com/example/${{ values.projectName }}/HelloController.java
 │   └── test/
 └── charts/
-    └── {{projectName}}/
+    └── ${{ values.projectName }}/
 ```
