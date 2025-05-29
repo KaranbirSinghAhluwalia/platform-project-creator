@@ -45,8 +45,8 @@ spec:
         description: Generated Java Spring Boot app
         repoVisibility: public
         values:
-          name: {{parameters.projectName}}
-          owner: {{parameters.owner}}
+          projectName: ${{parameters.projectName}}
+          owner: ${{parameters.owner}}
     
     - id: register
       name: Register
