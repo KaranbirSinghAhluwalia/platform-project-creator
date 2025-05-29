@@ -4,12 +4,12 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>{{ projectName }}</artifactId>
+  <artifactId>${{ values.projectName }}</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <properties>
-    <java.version>{{ javaVersion }}</java.version>
+    <java.version>${{ values.javaVersion }}</java.version>
     <spring.boot.version>3.1.1</spring.boot.version>
   </properties>
 
