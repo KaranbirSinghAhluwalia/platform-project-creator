@@ -33,9 +33,9 @@ spec:
         url: ./skeleton
         targetPath: .
         values:
-          projectName: "{{ parameters.projectName }}"
-          javaVersion: "{{ parameters.javaVersion }}"
-          buildTool: "{{ parameters.buildTool }}"
+          projectName: ${{parameters.projectName}}
+          javaVersion: ${{parameters.javaVersion}}
+          buildTool: ${{parameters.buildTool}}
     - id: publish
       name: Publishing to a github repository
       action: publish:github
@@ -45,9 +45,9 @@ spec:
         description: Generated Java Spring Boot app
         repoVisibility: public
         values:
-          projectName: "{{ parameters.projectName }}"
-          javaVersion: "{{ parameters.javaVersion }}"
-          buildTool: "{{ parameters.buildTool }}"
+          projectName: ${{parameters.projectName}}
+          javaVersion: ${{parameters.javaVersion}}
+          buildTool: ${{parameters.buildTool}}
     
     - id: register
       name: Register
