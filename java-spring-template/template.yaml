@@ -1,0 +1,48 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: java-spring-template
+  title: Java Spring Boot Template
+  description: Scaffolds a Java Spring Boot app with Docker and Jacoco support, pushes to new repo
+spec:
+  owner: team@example.com
+  type: service
+  parameters:
+    - title: Project Info
+      required: ['projectName', 'javaVersion', 'buildTool', 'repoUrl']
+      properties:
+        projectName:
+          type: string
+          title: Project Name
+        javaVersion:
+          type: string
+          title: Java Version
+          enum: ['17', '21']
+        buildTool:
+          type: string
+          title: Build Tool
+          enum: ['maven', 'gradle']
+        repoUrl:
+          type: string
+          title: Git Repository URL
+          description: URL of the new Git repo to push the scaffolded project
+  steps:
+    - id: fetch
+      name: Fetch Skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        targetPath: .
+        values:
+          projectName: "{{ parameters.projectName }}"
+          javaVersion: "{{ parameters.javaVersion }}"
+          buildTool: "{{ parameters.buildTool }}"
+    - id: init_repo
+      name: Initialize Git Repo and Push
+      action: git:push
+      input:
+        remoteUrl: "{{ parameters.repoUrl }}"
+        commitMessage: "Initial commit of {{ parameters.projectName }}"
+        userName: backstage-bot
+        userEmail: backstage@example.com
+        force: true
