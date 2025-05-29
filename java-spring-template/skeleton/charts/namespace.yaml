@@ -2,8 +2,8 @@ apiVersion: v1
 kind: Namespace
 metadata:
   labels:
-    kubernetes.io/metadata.name: ${{ values.name }}
-  name: ${{ values.name }}
+    kubernetes.io/metadata.name: ${{ values.projectName }}
+  name: ${{ values.projectName }}
 spec:
   finalizers:
   - kubernetes
