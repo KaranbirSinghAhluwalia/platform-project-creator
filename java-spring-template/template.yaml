@@ -52,7 +52,7 @@ spec:
       name: Register in Backstage Catalog
       action: catalog:register
       input:
-        repoContentsUrl: https://github.com/${{ parameters.owner }}/${{ parameters.projectName }}.git
+        repoContentsUrl: https://github.com/${{parameters.owner}}/${{parameters.projectName}}.git
         catalogInfoPath: catalog-info.yaml
 
     - id: argocd
